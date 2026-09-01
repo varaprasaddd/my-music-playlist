@@ -1,0 +1,62 @@
+{
+  "starboy": {
+    "cover": "images/cover_starboy.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/71/d6/1171d6ad-3c96-e027-2af6-58028426588c/mzaf_15137631797407745471.plus.aac.p.m4a"
+  },
+  "massa-massa": {
+    "cover": "images/cover_massa.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/50/9d/da509d53-1c86-a099-1c3c-7e038ef72506/mzaf_2795513759439521124.plus.aac.p.m4a"
+  },
+  "laila-o-laila": {
+    "cover": "images/cover_laila.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/65/85/73/65857380-df15-e04c-632e-4164f12d182d/mzaf_16419094411886414901.plus.aac.p.m4a"
+  },
+  "oo-antava": {
+    "cover": "images/cover_ooantava.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/59/5d/86/595d8694-c034-2040-9a11-2f117ed32ea4/mzaf_8961189800316643417.plus.aac.p.m4a"
+  },
+  "underrated": {
+    "cover": "images/cover_underrated.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/28/5c/32/285c326a-d487-93f3-0f57-a65920a9804a/mzaf_7797163191293188958.plus.aac.p.m4a"
+  },
+  "sao-paulo": {
+    "cover": "images/cover_saopaulo.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/28/8d/e2/288de28e-9cac-7241-8cb1-39d996bc9643/mzaf_13794577341082149874.plus.aac.p.m4a"
+  },
+  "bulleya": {
+    "cover": "images/cover_bulleya.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/84/b7/21/84b721f8-9a59-8f9c-b69b-3304eb4a3f2b/mzaf_10560826042811180310.plus.aac.p.m4a"
+  },
+  "yesu-nagula": {
+    "cover": "images/cover_yesunagula.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/f2/d2/a7f2d25c-506f-3382-4542-b50b42307594/mzaf_17225437196748280172.plus.aac.p.m4a"
+  },
+  "aya-sher": {
+    "cover": "images/cover_ayasher.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/f2/d2/a7f2d25c-506f-3382-4542-b50b42307594/mzaf_17225437196748280172.plus.aac.p.m4a"
+  },
+  "rai-rai-raa-raa": {
+    "cover": "images/cover_rairai.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/14/e4/93/14e49321-fe67-d5d1-55d5-802cf00d1f5c/mzaf_5998635105213503708.plus.aac.p.m4a"
+  },
+  "ye-tune-kya-kiya": {
+    "cover": "images/cover_yetune.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/98/de/6c/98de6cab-47e0-fb64-b3e3-abb5fc952ab2/mzaf_13316336267787214781.plus.aac.p.m4a"
+  },
+  "channa-mereya": {
+    "cover": "images/cover_channa.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d5/f9/98/d5f998a7-0090-ee2d-03f8-557ad6c5bf65/mzaf_14251357991592637728.plus.aac.p.m4a"
+  },
+  "trance-of-omi": {
+    "cover": "images/cover_omi.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/77/f2/85/77f28540-c739-3144-41b3-0df033d84a86/mzaf_17221836868312789671.plus.aac.p.m4a"
+  },
+  "ogas-gambhira": {
+    "cover": "images/cover_og.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/55/12/48/55124874-ee8e-eae4-966b-b2ec1054c14f/mzaf_5479392496924546923.plus.aac.p.m4a"
+  },
+  "nuvvu-nenantu": {
+    "cover": "images/cover_orange.jpg",
+    "audioSrc": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/18/79/b1/1879b127-5bfa-6a32-f6d1-9c14f42cd306/mzaf_473814996909398735.plus.aac.p.m4a"
+  }
+}

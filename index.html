@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vara's Pulse Playlist | 15 Songs Dashboard</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,700&family=Space+Grotesk:wght@500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-starboy">
+  <!-- Background Glow Orbs -->
+  <div class="bg-glow orb-1"></div>
+  <div class="bg-glow orb-2"></div>
+  <div class="bg-glow orb-3"></div>
+
+  <!-- App Wrapper -->
+  <div class="app-layout">
+    <!-- Top Navigation Header -->
+    <header class="app-header glass-panel">
+      <div class="header-left">
+        <div class="logo-container" id="btnLogoHome">
+          <div class="logo-icon-pulse">
+            <i data-lucide="disc-3" class="spin-slow"></i>
+          </div>
+          <div class="logo-titles">
+            <h1 class="logo-title">Vara's Pulse</h1>
+            <span class="logo-subtitle">15 Liked Songs Playlist</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Controls -->
+      <div class="header-center">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search songs, singers, lyrics, mood..." autocomplete="off">
+          <button id="clearSearchBtn" class="btn-icon-sm hidden" title="Clear search">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Theme Dropdown / Switcher -->
+        <div class="theme-selector">
+          <button id="themeToggleBtn" class="btn-glass" title="Change Theme">
+            <i data-lucide="palette"></i>
+            <span class="hide-mobile">Theme</span>
+          </button>
+          <div id="themeMenu" class="dropdown-menu glass-panel hidden">
+            <button class="theme-opt active" data-theme="theme-starboy">
+              <span class="swatch starboy-swatch"></span> Starboy Red
+            </button>
+            <button class="theme-opt" data-theme="theme-cyberpunk">
+              <span class="swatch cyberpunk-swatch"></span> Cyberpunk Cyan
+            </button>
+            <button class="theme-opt" data-theme="theme-emerald">
+              <span class="swatch emerald-swatch"></span> Emerald Flow
+            </button>
+            <button class="theme-opt" data-theme="theme-purple">
+              <span class="swatch purple-swatch"></span> Midnight Violet
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Audio / Help Info -->
+        <label class="btn-glass file-upload-btn" title="Add / Replace with your custom MP3 file">
+          <i data-lucide="upload"></i>
+          <span class="hide-mobile">Custom MP3</span>
+          <input type="file" id="customAudioFile" accept="audio/*" style="display: none;">
+        </label>
+      </div>
+    </header>
+
+    <!-- Language Filter Nav Tabs -->
+    <nav class="language-nav-section">
+      <div class="lang-filter-bar">
+        <button class="lang-tab active" data-lang="All">
+          <i data-lucide="sparkles"></i> All Songs <span class="badge-count" id="countAll">15</span>
+        </button>
+        <button class="lang-tab" data-lang="Telugu">
+          <i data-lucide="music-2"></i> Telugu <span class="badge-count" id="countTelugu">8</span>
+        </button>
+        <button class="lang-tab" data-lang="Hindi">
+          <i data-lucide="flame"></i> Hindi <span class="badge-count" id="countHindi">5</span>
+        </button>
+        <button class="lang-tab" data-lang="English">
+          <i data-lucide="globe"></i> English <span class="badge-count" id="countEnglish">2</span>
+        </button>
+      </div>
+      <div class="stats-info">
+        <span id="showingStatsText">Showing 15 of 15 songs</span>
+      </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+      
+      <!-- VIEW 1: 15 Dashboards Grid -->
+      <section id="dashboardsGridView" class="playlist-grid-view">
+        <div class="section-headline">
+          <h2><i data-lucide="layout-grid"></i> Song Dashboards</h2>
+          <p class="section-desc">Click any song dashboard to open title, cover picture, sung by, lyrics by, audio player, and enhanced lyrics!</p>
+        </div>
+        <div class="dashboards-grid" id="songsGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+        <div id="noResultsState" class="empty-state hidden">
+          <i data-lucide="music" class="empty-icon"></i>
+          <h3>No songs found</h3>
+          <p>Try searching with another keyword or resetting the language filter.</p>
+          <button id="resetFilterBtn" class="btn-primary">Reset Filters</button>
+        </div>
+      </section>
+
+      <!-- VIEW 2: Dedicated Song Dashboard & Enhanced Lyrics View -->
+      <section id="songDetailView" class="song-detail-view hidden">
+        <!-- Back Navigation Button -->
+        <div class="detail-top-nav">
+          <button id="btnBackToGrid" class="btn-glass back-btn">
+            <i data-lucide="arrow-left"></i> Back to 15 Dashboards
+          </button>
+          <div class="song-quick-jump">
+            <button id="btnPrevSongHeader" class="btn-icon-sm" title="Previous Song"><i data-lucide="skip-back"></i></button>
+            <span id="currentSongIndexBadge" class="track-indicator">Song 1 of 15</span>
+            <button id="btnNextSongHeader" class="btn-icon-sm" title="Next Song"><i data-lucide="skip-forward"></i></button>
+          </div>
+        </div>
+
+        <div class="song-detail-grid">
+          <!-- LEFT COLUMN: Cover, Info & Audio Player -->
+          <div class="player-column">
+            <div class="song-hero-card glass-panel" id="heroCardWrapper">
+              <!-- Song Image Banner -->
+              <div class="cover-wrapper">
+                <img id="detailCoverImg" src="images/starboyy.jpg" alt="Song Cover" class="cover-artwork">
+                <div class="cover-overlay-gradient"></div>
+                <div class="cover-floating-badge" id="detailGenreBadge">GLOBAL HIT</div>
+              </div>
+
+              <!-- Song Titles and Metadata -->
+              <div class="song-info-meta">
+                <div class="song-title-row">
+                  <h2 id="detailSongTitle" class="hero-song-title">Starboy</h2>
+                  <span id="detailLangBadge" class="lang-pill">English</span>
+                </div>
+                <p id="detailAlbumName" class="hero-album-title">Starboy (2016)</p>
+
+                <!-- Key Credits: Sung by & Lyrics by -->
+                <div class="credits-box">
+                  <div class="credit-row">
+                    <div class="credit-icon"><i data-lucide="mic-2"></i></div>
+                    <div class="credit-text">
+                      <span class="credit-label">SUNG BY</span>
+                      <strong id="detailSungBy" class="credit-value">The Weeknd ft. Daft Punk</strong>
+                    </div>
+                  </div>
+
+                  <div class="credit-row">
+                    <div class="credit-icon"><i data-lucide="pen-tool"></i></div>
+                    <div class="credit-text">
+                      <span class="credit-label">LYRICS BY</span>
+                      <strong id="detailLyricsBy" class="credit-value">Abel Tesfaye, Daft Punk, Doc McKinney</strong>
+                    </div>
+                  </div>
+
+                  <div class="credit-row">
+                    <div class="credit-icon"><i data-lucide="music"></i></div>
+                    <div class="credit-text">
+                      <span class="credit-label">MUSIC BY</span>
+                      <strong id="detailMusicBy" class="credit-value">Daft Punk, Cirkut</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Interactive Audio Player Section -->
+                <div class="interactive-audio-section glass-inset">
+                  <div class="audio-header-bar">
+                    <div class="audio-state-tag">
+                      <span class="pulse-dot" id="liveAudioDot"></span>
+                      <span id="audioStatusText">Ready to Play</span>
+                    </div>
+
+                    <!-- Animated Equalizer Sound Waves -->
+                    <div class="equalizer-bars" id="audioEqualizer">
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                    </div>
+                  </div>
+
+                  <!-- Timeline Seek Bar -->
+                  <div class="timeline-container">
+                    <span id="currentTimeDisplay" class="time-label">0:00</span>
+                    <div class="slider-wrapper">
+                      <input type="range" id="seekSlider" class="custom-slider" min="0" max="100" value="0" step="0.1">
+                      <div class="slider-progress" id="seekProgressFill"></div>
+                    </div>
+                    <span id="totalDurationDisplay" class="time-label">3:50</span>
+                  </div>
+
+                  <!-- Audio Main Controls -->
+                  <div class="player-controls-row">
+                    <button id="btnShuffle" class="btn-control-secondary" title="Shuffle">
+                      <i data-lucide="shuffle"></i>
+                    </button>
+                    <button id="btnPrevTrack" class="btn-control-secondary" title="Previous Track">
+                      <i data-lucide="skip-back"></i>
+                    </button>
+                    <button id="btnMainPlayPause" class="btn-control-play" title="Play Song">
+                      <i data-lucide="play" id="playIconMain"></i>
+                    </button>
+                    <button id="btnNextTrack" class="btn-control-secondary" title="Next Track">
+                      <i data-lucide="skip-forward"></i>
+                    </button>
+                    <button id="btnLoop" class="btn-control-secondary" title="Loop Track">
+                      <i data-lucide="repeat"></i>
+                    </button>
+                  </div>
+
+                  <!-- Volume Controls -->
+                  <div class="volume-controls-row">
+                    <button id="btnMuteToggle" class="btn-icon-sm" title="Mute/Unmute">
+                      <i data-lucide="volume-2" id="volumeIcon"></i>
+                    </button>
+                    <div class="volume-slider-wrapper">
+                      <input type="range" id="volumeSlider" class="custom-slider" min="0" max="1" step="0.02" value="0.8">
+                      <div class="volume-progress" id="volumeProgressFill"></div>
+                    </div>
+                    <span id="volumePercentDisplay" class="vol-label">80%</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Enhanced Written Lyrics View -->
+          <div class="lyrics-column">
+            <div class="lyrics-card glass-panel">
+              <!-- Lyrics Top Action Bar -->
+              <div class="lyrics-header-bar">
+                <div class="lyrics-title-group">
+                  <div class="lyrics-tag-icon"><i data-lucide="file-text"></i></div>
+                  <div>
+                    <h3 class="lyrics-heading">Written Lyrics</h3>
+                    <span class="lyrics-subheading" id="lyricsStatusSubtitle">Enhanced View &bull; Synchronized Mode</span>
+                  </div>
+                </div>
+
+                <div class="lyrics-tools">
+                  <!-- Mode Switcher -->
+                  <div class="lyrics-mode-switcher">
+                    <button id="btnModeKaraoke" class="btn-mode-tab active" title="Synchronized Karaoke Line Highlighting">
+                      <i data-lucide="mic"></i> Karaoke
+                    </button>
+                    <button id="btnModeFull" class="btn-mode-tab" title="Full Song Lyrics Reader View">
+                      <i data-lucide="align-left"></i> Full Text
+                    </button>
+                  </div>
+                  <!-- Font Size Controls -->
+                  <div class="font-zoom-tools" title="Adjust Lyrics Font Size">
+                    <button id="btnFontDec" class="btn-tool-sm" title="Smaller Font">A-</button>
+                    <button id="btnFontInc" class="btn-tool-sm" title="Larger Font">A+</button>
+                  </div>
+                  <!-- Auto Scroll Toggle -->
+                  <button id="btnAutoScrollToggle" class="btn-glass active" title="Toggle Auto-Scroll">
+                    <i data-lucide="scroll"></i>
+                    <span class="hide-mobile">Auto-Scroll</span>
+                  </button>
+                  <!-- Copy Lyrics Button -->
+                  <button id="btnCopyLyrics" class="btn-glass" title="Copy Lyrics to Clipboard">
+                    <i data-lucide="copy" id="copyIcon"></i>
+                    <span id="copyBtnText" class="hide-mobile">Copy</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Formatted Lyrics Display Area -->
+              <div class="lyrics-scroll-area" id="lyricsScrollContainer">
+                <div class="lyrics-content-wrapper" id="lyricsContentArea">
+                  <!-- Structured lyrics inserted dynamically -->
+                </div>
+              </div>
+
+              <!-- Lyrics Footer -->
+              <div class="lyrics-footer-bar">
+                <span class="lyrics-footer-tip"><i data-lucide="sparkles"></i> Click any lyric line to jump audio &bull; Karaoke highlight active</span>
+                <span id="wordCountBadge" class="lyrics-count">240 Words</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Persistent Mini Player -->
+    <aside class="mini-player-bar glass-panel" id="miniPlayerBar">
+      <div class="mini-left" id="miniPlayerInfoTrigger">
+        <img id="miniCoverImg" src="images/starboyy.jpg" alt="Cover" class="mini-cover">
+        <div class="mini-text">
+          <strong id="miniSongTitle" class="mini-title">Starboy</strong>
+          <span id="miniSongArtist" class="mini-artist">The Weeknd ft. Daft Punk</span>
+        </div>
+      </div>
+
+      <div class="mini-center">
+        <div class="mini-controls-buttons">
+          <button id="miniPrevBtn" class="btn-icon-sm" title="Previous"><i data-lucide="skip-back"></i></button>
+          <button id="miniPlayBtn" class="btn-icon-play-sm" title="Play/Pause"><i data-lucide="play" id="miniPlayIcon"></i></button>
+          <button id="miniNextBtn" class="btn-icon-sm" title="Next"><i data-lucide="skip-forward"></i></button>
+        </div>
+        <div class="mini-scrubber">
+          <span id="miniCurrentTime" class="mini-time">0:00</span>
+          <div class="mini-slider-track">
+            <div class="mini-progress-fill" id="miniProgressFill"></div>
+          </div>
+          <span id="miniTotalTime" class="mini-time">3:50</span>
+        </div>
+      </div>
+
+      <div class="mini-right">
+        <button id="miniExpandBtn" class="btn-glass btn-expand-lyrics" title="Open Full Song Dashboard & Lyrics">
+          <i data-lucide="maximize-2"></i>
+          <span class="hide-mobile">Lyrics & Details</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Floating Toast Notification -->
+    <div id="toastNotification" class="toast-popup glass-panel hidden">
+      <i data-lucide="check-circle-2" class="toast-icon"></i>
+      <span id="toastMessage">Lyrics copied to clipboard!</span>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="songs.js"></script>
+  <script src="audioEngine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
